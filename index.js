@@ -12,18 +12,20 @@ let text;
 let word;
 let heading;
 let btn;
+let classBtn;
 function myFunction() {
   
 
   formDiv.style.display = "none";
   letters = document.getElementById("input-text").value;
   //console.log(word)
+  console.log(letters);
   showPermute = document.getElementById("show-permute");
   showPermute.style.display = "block";
   btnDisplay.style.display = "block";
   words = permute(letters);
   console.log(words);
-  text = document.createElement("p");
+  text = document.createElement("h1");
   text.classList.add("text");
   text.innerHTML = `Text is ${letters}`;
   showPermute.appendChild(text);
@@ -39,7 +41,7 @@ function myFunction() {
   for (let l = 0; l < word.length; l++) {
     classBtn.item(l).innerHTML = word[l];
   }
-  
+ 
 }
 function permute(letters) {
   let permutation = [];
@@ -59,16 +61,18 @@ function next() {
   
   i = i + 1;
   let word = words[i];
-  console.log(document.getElementsByClassName("button-letter").item(0));
-  let classBtn = document.getElementsByClassName("button-letter");
+  console.log(words[i]);
+ classBtn = document.getElementsByClassName("button-letter");
   for (let l = 0; l < word.length; l++) {
     classBtn.item(l).innerHTML = word[l];
   }
-
+  
+  
 }
 console.log(letters);
 function reset() {
- 
+  
+ console.log(letters)
   let formDiv = document.getElementById("form");
   formDiv.style.display = "block";
   //console.log(word)
@@ -84,5 +88,6 @@ function reset() {
   elem.forEach((element) => {
     element.remove();
   });
- 
+classBtn='';
+i=0
 }
